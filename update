@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo -e "\033[33m 请输入此次更改说明，输入后回车即可及提交此次更改 \033[0m"
+read content
+echo -e "\033[35m 准备更新代码 \033[0m"
+git add .
+git commit -m $content
+git pull origin master
+git push origin master
+echo -e "\033[35m 结束 \033[0m"
+
+# read
