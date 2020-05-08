@@ -1,6 +1,16 @@
 <template>
-  <div class="app-container">
-    <div class="app-wrapper">
+  <div class="main">
+    <el-card class="box-card">
+
+      <div slot="header" class="clearfix">
+        <span>设备列表</span>
+        <span style="float:right">
+          <router-link to="/merchant/device/add">
+            <el-button type="primary">添加设备</el-button>
+          </router-link>
+        </span>
+      </div>
+
       <el-table :data="tableData" stripe style="width: 100%">
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column label="合作商户" width="200">
@@ -84,7 +94,7 @@
           <el-button type="primary" @click="dialogVisible=false">关闭</el-button>
         </div>
       </el-dialog>
-    </div>
+    </el-card>
   </div>
 </template>
 
@@ -189,21 +199,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.app-main {
+<style scoped>
+.main {
   padding: 32px;
-  background: rgb(240, 242, 245);
-
-  .app-container {
-    background-color: rgb(240, 242, 245);
-    position: relative;
-
-    .app-wrapper {
-      background: #fff;
-      padding: 16px 16px 0;
-      margin-bottom: 32px;
-    }
-  }
 }
 </style>
 

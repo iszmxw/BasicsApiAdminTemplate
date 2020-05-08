@@ -154,8 +154,8 @@ export const asyncRoutes = [{
     }
   },
   {
-    path: 'store_list',
-    component: () => import('@/views/merchant/store_list'),
+    path: 'store/store_list',
+    component: () => import('@/views/merchant/store/store_list'),
     name: '门店列表',
     meta: {
       title: '门店列表',
@@ -163,8 +163,8 @@ export const asyncRoutes = [{
     }
   },
   {
-    path: 'store_site',
-    component: () => import('@/views/merchant/store_site'),
+    path: 'store/store_site',
+    component: () => import('@/views/merchant/store/store_site'),
     name: '门店设置',
     hidden: true,
     meta: {
@@ -173,11 +173,20 @@ export const asyncRoutes = [{
     }
   },
   {
-    path: 'devece/list',
+    path: 'device/list',
     component: () => import('@/views/merchant/device/list'),
-    name: 'device_list',
+    name: '设备列表',
     meta: {
-      title: 'device_list'
+      title: '设备列表'
+    }
+  },
+  {
+    path: 'device/add',
+    component: () => import('@/views/merchant/device/add'),
+    name: '添加设备',
+    hidden: true,
+    meta: {
+      title: '添加设备'
     }
   }
   ]
