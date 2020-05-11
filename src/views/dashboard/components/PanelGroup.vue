@@ -23,7 +23,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">吸粉客户</div>
-          <count-to :start-val="0" :end-val="hifans_total" :duration="3000" class="card-panel-num" />
+          <count-to :start-val="0" :end-val="official_total" :duration="3000" class="card-panel-num" />
         </div>
       </div>
     </el-col>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       company_total: 0,
-      hifans_total: 0
+      official_total: 0
     }
   },
   mounted() {
@@ -51,7 +51,7 @@ export default {
     statistics() {
       statistics().then(res => {
         this.company_total = res.data.company_total
-        this.hifans_total = res.data.hifans_total
+        this.official_total = res.data.official_total
       })
     }
   }

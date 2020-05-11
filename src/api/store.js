@@ -1,25 +1,28 @@
 import request from '@/utils/request'
 
-export function login(data) {
+// 获取门店类型（场景）
+export function get_scene(data) {
   return request({
-    url: '/user/login',
+    url: '/merchant/store/get_scene',
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+// 获取单条门店信息
+export function get_store_info(data) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/merchant/store/get_store_info',
+    method: 'post',
+    data
   })
 }
 
-export function logout(token) {
+// 保存门店信息
+export function save_store_info(data) {
   return request({
-    url: '/user/logout',
+    url: '/merchant/store/save_store_info',
     method: 'post',
-    params: { token }
+    data
   })
 }

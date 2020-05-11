@@ -14,13 +14,33 @@
         class="form"
       >
         <el-form-item label="门店名称*">
-          <el-input v-model="form.site_title" />
+          <el-input v-model="form.name" />
         </el-form-item>
         <el-form-item label="门店类型*">
-          <el-input v-model="form.site_description" />
+          <el-select
+            v-model="form.type"
+            placeholder="请选择"
+          >
+            <el-option
+              v-for="item in scenes"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            />
+          </el-select>
         </el-form-item>
         <el-form-item label="归属用户*">
-          <el-input v-model="form.site_url" />
+          <el-select
+            v-model="form.user_id"
+            placeholder="请选择"
+          >
+            <el-option
+              v-for="item in scenes"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            />
+          </el-select>
         </el-form-item>
         <el-form-item label="门店图片">
           <el-input v-model="form.icp" />
@@ -53,33 +73,46 @@
 </template>
 
 <script>
-import { config, save_config } from '@/api/store'
+import { get_scene, get_store_info, save_store_info } from '@/api/store'
 
 export default {
   data() {
     return {
+      scenes: [],
       form: {}
     }
   },
   mounted() {
-    this.getData()
+    this.getScene()
+    if (this.$route.query.id > 0) {
+      this.getData()
+    }
   },
   methods: {
+    getScene() {
+      get_scene().then(res => {
+        if (res.code === 20000) {
+          this.scenes = res.data
+        }
+      })
+    },
     getData() {
-      config().then(res => {
-        if (res.code === 200) {
-          this.form = res.data
+      get_store_info(this.$route.query).then(res => {
+        if (res.code === 20000) {
+          if (res.data) {
+            this.form = res.data
+          }
         }
       })
     },
     onSubmit() {
-      save_config(this.form).then(res => {
-        if (res.code === 200) {
-          this.$notify({
-            title: '提示',
-            message: res.message,
-            type: 'success'
-          })
+      save_store_info(this.form).then(res => {
+        if (res.code === 20000) {
+          // this.$notify({
+          //   title: '提示',
+          //   message: res.message,
+          //   type: 'success'
+          // })
         }
       })
     }

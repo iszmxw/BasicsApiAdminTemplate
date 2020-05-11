@@ -1,6 +1,11 @@
 <template>
-  <div class="app-container">
-    <div class="app-wrapper">
+  <div class="main">
+    <el-card class="box-card">
+
+      <div slot="header" class="clearfix">
+        <span>创建商户</span>
+      </div>
+
       <el-form ref="form" :model="form" label-width="90px" style="display: inline-block">
         <el-col :lg="24">
           <el-col :lg="12">
@@ -52,7 +57,7 @@
           </el-col>
         </el-col>
       </el-form>
-    </div>
+    </el-card>
   </div>
 </template>
 
@@ -95,21 +100,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.app-main {
+<style scoped>
+.main {
   padding: 32px;
-  background: rgb(240, 242, 245);
-
-  .app-container {
-    background-color: rgb(240, 242, 245);
-    position: relative;
-
-    .app-wrapper {
-      background: #fff;
-      padding: 16px 16px 0;
-      margin-bottom: 32px;
-    }
-  }
 }
 </style>
 

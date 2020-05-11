@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { config, save_config } from '@/api/store'
+import { config, save_config } from '@/api/device'
 
 export default {
   data() {
@@ -67,14 +67,14 @@ export default {
   methods: {
     getData() {
       config().then(res => {
-        if (res.code === 200) {
+        if (res.code === 20000) {
           this.form = res.data
         }
       })
     },
     onSubmit() {
       save_config(this.form).then(res => {
-        if (res.code === 200) {
+        if (res.code === 20000) {
           this.$notify({
             title: '提示',
             message: res.message,

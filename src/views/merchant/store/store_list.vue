@@ -2,10 +2,13 @@
   <div class="main">
     <el-card class="box-card">
 
-      <div slot="header" class="clearfix">
+      <div
+        slot="header"
+        class="clearfix"
+      >
         <span>门店列表</span>
         <span style="float:right">
-          <router-link to="/merchant/store_site">
+          <router-link to="/merchant/store/store_site">
             <el-button type="primary">添加门店</el-button>
           </router-link>
         </span>
