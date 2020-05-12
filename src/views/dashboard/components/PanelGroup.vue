@@ -22,7 +22,7 @@
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">吸粉客户</div>
+          <div class="card-panel-text">公众号数量</div>
           <count-to :start-val="0" :end-val="official_total" :duration="3000" class="card-panel-num" />
         </div>
       </div>
